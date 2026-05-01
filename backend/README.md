@@ -32,6 +32,10 @@ Built entirely within a 72-hour window with AI as a first-class development part
 | AI Tooling | Claude (Anthropic) | Scaffolding, logic, UI generation |
 
 ---
+## 🌐 Live Demo
+
+🚀 Live Project:  
+👉 [CleanOps — AI Laundry Management System](https://laundary-management-system-a14k.onrender.com/)
 
 ## 🚀 Setup Instructions
 
