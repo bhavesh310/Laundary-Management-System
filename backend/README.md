@@ -308,8 +308,10 @@ cleanops-laundry/
 │   └── package.json
 │
 ├── frontend/
-│   └── public/
-│       └── index.html                 # Complete SPA — HTML + CSS + JS in one file
+│ └── public/
+│ ├── index.html # Main UI
+│ ├── script.js # Frontend logic
+│ └── style.css # Styling
 │
 ├── CleanOps.postman_collection.json   # Import into Postman — all 7 endpoints ready
 ├── .gitignore
