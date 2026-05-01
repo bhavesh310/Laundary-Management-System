@@ -19,6 +19,10 @@ A dark-luxury, single-page application paired with a clean REST API that lets st
 Built entirely within a 72-hour window with AI as a first-class development partner. Every scaffold, fix, and design decision is documented transparently in the AI Usage Report below.
 
 ---
+## 🌐 Live Demo
+
+🚀 Live Project:  
+👉 [https://your-live-demo-link.com](https://laundary-management-system-a14k.onrender.com/)
 
 ## Tech Stack
 
