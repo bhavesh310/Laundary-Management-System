@@ -22,7 +22,7 @@ Built entirely within a 72-hour window with AI as a first-class development part
 ## 🌐 Live Demo
 
 🚀 Live Project:  
-👉 [https://your-live-demo-link.com](https://laundary-management-system-a14k.onrender.com/)
+👉 [CleanOps — AI Laundry Management System](https://laundary-management-system-a14k.onrender.com/)
 
 ## Tech Stack
 
