@@ -1,4 +1,4 @@
-const API = '';  // Same origin
+const API = 'https://laundary-management-system-a14k.onrender.com/';  // Same origin
 
 // ── Price config ──────────────────────────────────────────────────────────────
 let PRICES = {
