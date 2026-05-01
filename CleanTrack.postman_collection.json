@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "CleanTrack — Laundry API",
+    "description": "Mini Laundry Order Management System API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000/api", "type": "string" },
+    { "key": "order_id", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "📊 Dashboard",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/dashboard",
+        "description": "Get overall stats: total orders, revenue, orders per status, top garments"
+      }
+    },
+    {
+      "name": "💰 Get Price List",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/prices",
+        "description": "Get standard prices for all garment types"
+      }
+    },
+    {
+      "name": "✚ Create Order",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/orders",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerName\": \"Rahul Sharma\",\n  \"phoneNumber\": \"9876543210\",\n  \"garments\": [\n    { \"name\": \"shirt\", \"quantity\": 3, \"pricePerItem\": 50 },\n    { \"name\": \"saree\", \"quantity\": 1, \"pricePerItem\": 120 },\n    { \"name\": \"pants\", \"quantity\": 2, \"pricePerItem\": 60 }\n  ]\n}"
+        },
+        "description": "Create a new laundry order. Returns order ID and total bill."
+      }
+    },
+    {
+      "name": "📋 List All Orders",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/orders",
+          "host": ["{{base_url}}"],
+          "path": ["orders"],
+          "query": [
+            { "key": "status", "value": "", "disabled": true },
+            { "key": "name", "value": "", "disabled": true },
+            { "key": "phone", "value": "", "disabled": true },
+            { "key": "garment", "value": "", "disabled": true }
+          ]
+        },
+        "description": "List all orders. Optional query params: status, name, phone, garment"
+      }
+    },
+    {
+      "name": "🔍 Filter by Status",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/orders?status=PROCESSING",
+        "description": "Filter orders by status: RECEIVED | PROCESSING | READY | DELIVERED"
+      }
+    },
+    {
+      "name": "🔍 Filter by Customer Name",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/orders?name=Rahul",
+        "description": "Partial match search by customer name"
+      }
+    },
+    {
+      "name": "🔍 Filter by Garment Type",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/orders?garment=saree",
+        "description": "Find all orders containing a specific garment type"
+      }
+    },
+    {
+      "name": "👁 Get Order by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/orders/{{order_id}}",
+        "description": "Get full details of a single order including status history"
+      }
+    },
+    {
+      "name": "🔄 Update Status → PROCESSING",
+      "request": {
+        "method": "PATCH",
+        "url": "{{base_url}}/orders/{{order_id}}/status",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"PROCESSING\",\n  \"note\": \"Stain treatment started\"\n}"
+        }
+      }
+    },
+    {
+      "name": "🔄 Update Status → READY",
+      "request": {
+        "method": "PATCH",
+        "url": "{{base_url}}/orders/{{order_id}}/status",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"READY\",\n  \"note\": \"Cleaned and packed, ready for pickup\"\n}"
+        }
+      }
+    },
+    {
+      "name": "🔄 Update Status → DELIVERED",
+      "request": {
+        "method": "PATCH",
+        "url": "{{base_url}}/orders/{{order_id}}/status",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"DELIVERED\",\n  \"note\": \"Handed to customer\"\n}"
+        }
+      }
+    },
+    {
+      "name": "🗑 Delete Order",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/orders/{{order_id}}",
+        "description": "Permanently delete an order"
+      }
+    }
+  ]
+}
